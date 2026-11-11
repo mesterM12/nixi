@@ -1,0 +1,111 @@
+{
+  "name": "grabby",
+  "version": "1.1.0",
+  "private": true,
+  "title": "nixi",
+  "description": "Capture what moves. Save video and audio to your Mac.",
+  "icon": "nixi.png",
+  "author": "mrm",
+  "platforms": [
+    "macOS"
+  ],
+  "categories": [
+    "Media",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "ray develop",
+    "build": "ray build",
+    "check": "tsc --noEmit",
+    "lint": "eslint src eslint.config.mjs --max-warnings=0 && prettier --check src eslint.config.mjs package.json"
+  },
+  "dependencies": {
+    "@raycast/api": "^2.11.1"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.14.0",
+    "prettier": "^3.9.10",
+    "typescript": "^5.9.3"
+  },
+  "preferences": [
+    {
+      "name": "serverUrl",
+      "title": "nixi Address",
+      "description": "Local nixi service address",
+      "type": "textfield",
+      "required": false,
+      "default": "http://127.0.0.1:43174"
+    }
+  ],
+  "commands": [
+    {
+      "name": "capture",
+      "title": "Nixi: Capture",
+      "description": "Save media from typed or clipboard links, with batch, playlist and format options",
+      "keywords": [
+        "nx"
+      ],
+      "mode": "view",
+      "icon": "nixi.png",
+      "arguments": [
+        {
+          "name": "url",
+          "placeholder": "Media URL (optional)",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "quick-capture",
+      "title": "Nixi: Quick Capture",
+      "description": "Immediately queue clipboard links using your saved defaults",
+      "keywords": [
+        "nq"
+      ],
+      "mode": "no-view",
+      "icon": "nixi.png"
+    },
+    {
+      "name": "extract-audio",
+      "title": "Nixi: Extract Audio",
+      "description": "Save only audio from a typed or clipboard media link",
+      "keywords": [
+        "na"
+      ],
+      "mode": "view",
+      "icon": "nixi.png",
+      "arguments": [
+        {
+          "name": "url",
+          "placeholder": "Media URL (optional)",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "queue",
+      "title": "Nixi: Queue",
+      "description": "Manage active downloads and history, retry failures and reveal saved files",
+      "keywords": [
+        "nqueue"
+      ],
+      "mode": "view",
+      "icon": "nixi.png"
+    },
+    {
+      "name": "open-panel",
+      "title": "Nixi: Open Panel",
+      "description": "Open the full nixi web interface",
+      "keywords": [
+        "nixi"
+      ],
+      "mode": "no-view",
+      "icon": "nixi.png"
+    }
+  ]
+}

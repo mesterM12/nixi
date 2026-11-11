@@ -1,0 +1,60 @@
+{
+  "name": "nixi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "start": "node --import tsx src/server.ts",
+    "dev": "node --import tsx scripts/dev.ts",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "setup": "node --import tsx scripts/setup.ts",
+    "install:agent": "pnpm run build && node --import tsx scripts/launch-agent.ts install",
+    "uninstall:agent": "node --import tsx scripts/launch-agent.ts uninstall",
+    "assets": "node --import tsx scripts/generate-assets.ts",
+    "test:unit": "vitest run --project unit",
+    "test:integration": "vitest run --project integration",
+    "test:components": "vitest run --project components",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:all": "pnpm run check && pnpm run build && pnpm run test:coverage && pnpm run test:e2e && pnpm --dir raycast run check && pnpm --dir raycast run lint && pnpm --dir raycast run build",
+    "test:macos": "vitest run --project integration tests/integration/formats.test.ts",
+    "test:live": "node --import tsx scripts/smoke-sites.ts"
+  },
+  "devDependencies": {
+    "@playwright/browser-chromium": "^1.65.0",
+    "@playwright/test": "^1.58.2",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/coverage-v8": "^4.1.0",
+    "jsdom": "^28.1.0",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.11",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "effect": "^4.1.3",
+    "lucide-react": "^0.577.0",
+    "next": "^16.4.6",
+    "radix-ui": "^1.8.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.5.0"
+  },
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}
