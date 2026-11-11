@@ -12,6 +12,7 @@
     "setup": "node --import tsx scripts/setup.ts",
     "install:agent": "pnpm run build && node --import tsx scripts/launch-agent.ts install",
     "uninstall:agent": "node --import tsx scripts/launch-agent.ts uninstall",
+    "docs:screenshots": "pnpm run build && node --import tsx scripts/capture-readme.ts",
     "assets": "node --import tsx scripts/generate-assets.ts",
     "test:unit": "vitest run --project unit",
     "test:integration": "vitest run --project integration",
